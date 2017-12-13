@@ -17,4 +17,9 @@ RSpec.describe User, type: :model do
   	user = User.create(name: 'string', email: nil)
   	expect(user).to_not be_valid
   end
+
+  it 'is not valid without email validation' do
+    email = User.create(name: 'string', email: 'whatever')
+    expect(email).to_not be_valid
+  end
 end
